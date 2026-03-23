@@ -1,0 +1,38 @@
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Jupyter/Colab artifacts
+.ipynb_checkpoints/
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local experiment/runtime outputs
+results/*.log
+results/*.tmp
+api/*.log
+
+# Keep local downloaded model weights out of git
+models/*
+!models/.gitkeep

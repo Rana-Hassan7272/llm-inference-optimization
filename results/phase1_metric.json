@@ -1,0 +1,9 @@
+{
+    "model": "TinyLlama-1.1B",
+    "precision": "fp16",
+    "device": "T4",
+    "latency_sec": 1.18,
+    "tokens_generated": 50,
+    "tokens_per_sec": 42,
+    "quality_score": 4.5
+  }
