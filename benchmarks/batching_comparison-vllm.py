@@ -110,10 +110,13 @@ def run_vllm_benchmark(llm, batch_sizes, max_new_tokens=MAX_NEW_TOKENS, max_prom
     it fills GPU compute slots as individual sequences finish,
     never waiting for the slowest in a batch.
     """
+    # vLLM ended up producing ~1 token per prompt in your runs (metrics showed
+    # `total_new_tokens == batch_size`). Setting `min_tokens` + `ignore_eos`
+    # forces generation to continue until the requested length.
     sampling_params = SamplingParams(
-        # vLLM generally interprets `max_tokens` as TOTAL tokens (prompt + generated).
-        # We set it to (max_prompt_len + desired new tokens) so generation length is consistent.
         max_tokens=max_prompt_len + max_new_tokens,
+        min_tokens=max_new_tokens,
+        ignore_eos=True,
         temperature=0,  # greedy = deterministic = fair comparison
     )
     results = {}
@@ -125,7 +128,12 @@ def run_vllm_benchmark(llm, batch_sizes, max_new_tokens=MAX_NEW_TOKENS, max_prom
         # Warmup
         llm.generate(
             get_batch_prompts(1),
-            SamplingParams(max_tokens=max_prompt_len + 10, temperature=0),
+            SamplingParams(
+                max_tokens=max_prompt_len + 10,
+                min_tokens=1,
+                ignore_eos=True,
+                temperature=0,
+            ),
         )
 
         run_data = []
