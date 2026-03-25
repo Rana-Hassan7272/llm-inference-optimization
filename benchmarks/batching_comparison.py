@@ -30,6 +30,7 @@ import argparse
 import statistics
 import sys
 import os
+from pathlib import Path
 
 try:
     import matplotlib
@@ -162,12 +163,30 @@ def run_vllm_benchmark(llm, batch_sizes, max_new_tokens=MAX_NEW_TOKENS):
 # ══════════════════════════════════════════════════════════════════════════════
 #  LOAD MANUAL BATCHING RESULTS FOR COMPARISON
 # ══════════════════════════════════════════════════════════════════════════════
+def _resolve_manual_results_path(path: str) -> Path:
+    p = Path(path)
+    if p.exists():
+        return p
+
+    root = Path(__file__).resolve().parent.parent
+    candidates = [
+        root / "results" / "batching-results" / "batching_results.json",
+        root / "results" / "batching_results.json",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return p
+
+
 def load_manual_results(path="batching_results.json"):
-    if not os.path.exists(path):
+    resolved = _resolve_manual_results_path(path)
+    if not resolved.exists():
         print(f"[WARN] {path} not found — skipping manual batching comparison.")
+        print(f"       Also checked: {resolved}")
         print("       Run optimization/batching.py first, then re-run this script.")
         return {}
-    with open(path) as f:
+    with open(resolved) as f:
         data = json.load(f)
     results = {}
     for r in data:
@@ -175,7 +194,7 @@ def load_manual_results(path="batching_results.json"):
             continue
         r["engine"] = "manual"
         results[r["batch_size"]] = r
-    print(f"[LOAD] Loaded manual batching results from {path}")
+    print(f"[LOAD] Loaded manual batching results from {resolved}")
     return results
 
 
