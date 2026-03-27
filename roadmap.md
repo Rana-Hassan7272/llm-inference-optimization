@@ -142,7 +142,7 @@ Build `dashboard/` as a React app showing:
 - Latency distribution chart
 - Routing decision log
 
-Keep it clean and simple. Four charts. No unnecessary complexity.
+Keep it clean
 
 **Deliverable at end of Phase 5:**
 One command runs all benchmarks, results visible in MLflow and React dashboard.
