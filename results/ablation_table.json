@@ -1,0 +1,26 @@
+{
+  "4-bit (fast)": {
+    "vram_gb": 2.19,
+    "ttft_ms": 74.0,
+    "tps": 14.06,
+    "auto_quality": 0.75,
+    "bleu1": 8.08,
+    "bleu_coverage_pct": 35.0
+  },
+  "8-bit (balanced)": {
+    "vram_gb": 2.16,
+    "ttft_ms": 152.0,
+    "tps": 7.16,
+    "auto_quality": 0.25,
+    "bleu1": 1.9,
+    "bleu_coverage_pct": 35.0
+  },
+  "FP16 (quality)": {
+    "vram_gb": 2.16,
+    "ttft_ms": 103.0,
+    "tps": 26.67,
+    "auto_quality": 0.25,
+    "bleu1": 1.73,
+    "bleu_coverage_pct": 35.0
+  }
+}

@@ -479,3 +479,19 @@ Built with PyTorch · FastAPI · vLLM · React · Docker
 [Live Dashboard](https://llm-inference-lab.vercel.app/) · [API](https://llm-inference-lab.onrender.com/docs) · [Repo](https://github.com/Rana-Hassan7272/llm-inference-lab)
 
 </div>
+
+<!-- ABLATION_TABLE_START -->
+
+### Ablation — Precision vs VRAM, TTFT, TPS, Quality (Auto + BLEU-1)
+
+Computed from `results/*_results.json`. Quality is a heuristic factual-correctness score (1–5). BLEU-1 uses a small reference set for factual prompts only.
+
+| Tier | VRAM (GB) | Avg TTFT (ms) | Avg TPS (tok/s) | Auto Quality (1–5) | BLEU-1 (0–100) |
+|---|---:|---:|---:|---:|---:|
+| 4-bit (fast) | 2.19 | 74 | 14.06 | 0.75 | 8.08 |
+| 8-bit (balanced) | 2.16 | 152 | 7.16 | 0.25 | 1.90 |
+| FP16 (quality) | 2.16 | 103 | 26.67 | 0.25 | 1.73 |
+
+Notes: This is a lightweight proxy; BLEU computed only on factual prompts. BLEU coverage: ~35.0% of prompts have references.
+
+<!-- ABLATION_TABLE_END -->
