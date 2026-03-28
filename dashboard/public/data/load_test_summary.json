@@ -1,6 +1,6 @@
 {
-  "timestamp_utc": "2026-03-28T17:18:05.164643+00:00",
-  "host": "https://llm-inference-lab.onrender.com/",
+  "timestamp_utc": "2026-03-27T16:47:25.167086+00:00",
+  "host": "http://127.0.0.1:8000",
   "duration": "180s",
   "spawn_rate": 1.0,
   "users": [
@@ -11,32 +11,48 @@
   ],
   "results": [
     {
+      "generate_rps": 1.1635994472684357,
+      "generate_avg_ms": 272.81874176440647,
+      "generate_p95_ms": 330.0,
+      "generate_fail_ratio": 0.0,
+      "total_rps": 1.3482089749600625,
       "users": 1,
-      "status": "failed",
-      "error": "/usr/bin/python3: No module named locust\n",
-      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_1_stats.csv",
-      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_1_failures.csv"
+      "status": "ok",
+      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_1_stats.csv",
+      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_1_failures.csv"
     },
     {
+      "generate_rps": 4.269664612951873,
+      "generate_avg_ms": 495.25126346012905,
+      "generate_p95_ms": 910.0,
+      "generate_fail_ratio": 0.0,
+      "total_rps": 5.129178796474211,
       "users": 5,
-      "status": "failed",
-      "error": "/usr/bin/python3: No module named locust\n",
-      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_5_stats.csv",
-      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_5_failures.csv"
+      "status": "ok",
+      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_5_stats.csv",
+      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_5_failures.csv"
     },
     {
+      "generate_rps": 4.6057551993214805,
+      "generate_avg_ms": 1258.0105275866676,
+      "generate_p95_ms": 2000.0,
+      "generate_fail_ratio": 0.0,
+      "total_rps": 5.638560910684479,
       "users": 10,
-      "status": "failed",
-      "error": "/usr/bin/python3: No module named locust\n",
-      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_10_stats.csv",
-      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_10_failures.csv"
+      "status": "ok",
+      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_10_stats.csv",
+      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_10_failures.csv"
     },
     {
+      "generate_rps": 4.614279392315032,
+      "generate_avg_ms": 2931.8227775546284,
+      "generate_p95_ms": 3800.0,
+      "generate_fail_ratio": 0.0,
+      "total_rps": 5.549454948767229,
       "users": 20,
-      "status": "failed",
-      "error": "/usr/bin/python3: No module named locust\n",
-      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_20_stats.csv",
-      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260328_171805/users_20_failures.csv"
+      "status": "ok",
+      "stats_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_20_stats.csv",
+      "failures_csv": "/content/llm-inference-lab/results/load-testing/run_20260327_164725/users_20_failures.csv"
     }
   ]
 }
