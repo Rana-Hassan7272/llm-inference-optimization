@@ -31,7 +31,7 @@ TIER_KEY = {
     "FP16 (quality)": "fp16",
 }
 
-FACTUAL_REFS: Dict[str, List[str]] = {
+FACTUAL_REFS_RAW: Dict[str, List[str]] = {
     "what is the capital of france?": ["paris"],
     "what is the boiling point of water at sea level in celsius?": ["100 celsius", "100", "100 degrees celsius", "100 °c"],
     "who wrote the play hamlet?": ["william shakespeare", "shakespeare"],
@@ -83,6 +83,16 @@ def clean_answer(answer: str, max_chars: int = 240) -> str:
 
 def tokenize(s: str) -> List[str]:
     return re.findall(r"\w+|[^\w\s]", normalize_text(s), flags=re.UNICODE)
+
+
+def build_normalized_refs(refs: Dict[str, List[str]]) -> Dict[str, List[str]]:
+    normalized: Dict[str, List[str]] = {}
+    for q, answers in refs.items():
+        normalized[normalize_text(q)] = answers
+    return normalized
+
+
+FACTUAL_REFS = build_normalized_refs(FACTUAL_REFS_RAW)
 
 
 def bleu1_score(hypo: str, refs: List[str]) -> float:
